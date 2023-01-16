@@ -1,11 +1,13 @@
 import React from "react";
 import Transaction from "./Transaction";
 
-function TransactionsList({arrayOftransactionEvents}) {
+function TransactionsList({arrayOftransactionEvents, transactionSetter, searchName}) {
 
 let transactionEventList = "loading..."
 if (arrayOftransactionEvents) {
-}
+  const filteredTransactions = arrayOftransactionEvents.filter[transactionEvents=>{
+    return (transactionEvents.description.toLowerCase() === "transaction";
+  }]
 
 // const singleTransaction = arrayOftransactionEvents.map((transaction) => (
 //   <Transaction 

@@ -1,9 +1,11 @@
 import React from "react";
 
-function Search({searchName, setSarchEvent}) {
+function Search({searchName, setSearchEvent}) {
 function handleSearch(event) {
-  
+  setSearchEvent(event.target.value);
 }
+
+
 
   return (
     <div className="ui large fluid icon input">
@@ -11,6 +13,7 @@ function handleSearch(event) {
         type="text"
         placeholder="Search your Recent Transactions"
         onChange={handleSearch}
+        value={searchName}
       />
       <i className="circular search link icon"></i>
     </div>
