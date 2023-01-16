@@ -1,7 +1,20 @@
 import React from "react";
 import Transaction from "./Transaction";
 
-function TransactionsList() {
+function TransactionsList({arrayOftransaction}) {
+const singleTransaction = arrayOftransaction.map((transaction) => {
+  <Transaction 
+  key={transaction.id}
+  data={transaction.data}
+  description={transaction.description}
+  category={transaction.category}
+  amount={transaction.amount}
+  date={transaction.date}
+  deleteTransaction={handleDelete}
+  />
+});
+
+
   return (
     <table className="ui celled striped padded table">
       <tbody>
