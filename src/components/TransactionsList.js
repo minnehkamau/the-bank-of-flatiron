@@ -1,25 +1,26 @@
 import React from "react";
 import Transaction from "./Transaction";
 
-function TransactionsList({arrayOftransactionEvents, transactionSetter, searchName}) {
+function TransactionsList({arrayOftransactionEvents, transactionEventSetter, searchName}) {
 
-let transactionEventList = "loading..."
+let transactionEventList ;
+
 if (arrayOftransactionEvents) {
-  const filteredTransactions = arrayOftransactionEvents.filter[transactionEvents=>{
-    return (transactionEvents.description.toLowerCase() === "transaction";
-  }]
+  const filteredTransactions = arrayOftransactionEvents.filter(transactionEvents=>{
+    return (transactionEvents.description.toLowerCase().includes(searchName.toLowerCase()))
+  })
 
-// const singleTransaction = arrayOftransactionEvents.map((transaction) => (
-//   <Transaction 
-//   key={transaction.id}
-//   date={transaction.date}
-//   description={transaction.description}
-//   category={transaction.category}
-//   amount={transaction.amount}
-//   />
-// ));
+transactionEventList = filteredTransactions.map((transaction) => (
+  <Transaction 
+  key={transaction.id}
+  date={transaction.date}
+  description={transaction.description}
+  category={transaction.category}
+  amount={transaction.amount}
+  />
+));
 
-
+}
   return (
     <table className="ui celled striped padded table">
       <tbody>
@@ -37,7 +38,7 @@ if (arrayOftransactionEvents) {
             <h3 className="ui center aligned header">Amount</h3>
           </th>
         </tr>
-        {singleTransaction}
+        {transactionEventList}
       </tbody>
     </table>
   );
