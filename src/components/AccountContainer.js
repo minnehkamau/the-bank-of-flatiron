@@ -4,7 +4,7 @@ import Search from "./Search";
 import AddTransactionForm from "./AddTransactionForm";
 
 function AccountContainer() {
-
+ 
 const [transactionsEvent, setTransactionsEvent] = useState([])
 const [searchEvent, setSearchEvent] = useState([])
 
@@ -24,7 +24,7 @@ function updatedTransactionEvents(addedTransactions) {
     <div>
       <Search  SearchName={searchEvent} setSearchEvent={setSearchEvent }/>
       <AddTransactionForm addedData ={updatedTransactionEvents} />
-      <TransactionsList arrayOftransactionEvents = {transactionsEvent}/>
+      <TransactionsList arrayOftransactionEvents = {transactionsEvent} transactionEventSetter={setTransactionsEvent} SearchName={searchEvent}/>
     </div>
   );
 }

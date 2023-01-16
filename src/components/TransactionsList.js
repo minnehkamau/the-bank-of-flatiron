@@ -2,15 +2,20 @@ import React from "react";
 import Transaction from "./Transaction";
 
 function TransactionsList({arrayOftransactionEvents}) {
-const singleTransaction = arrayOftransactionEvents.map((transaction) => (
-  <Transaction 
-  key={transaction.id}
-  date={transaction.date}
-  description={transaction.description}
-  category={transaction.category}
-  amount={transaction.amount}
-  />
-));
+
+let transactionEventList = "loading..."
+if (arrayOftransactionEvents) {
+}
+
+// const singleTransaction = arrayOftransactionEvents.map((transaction) => (
+//   <Transaction 
+//   key={transaction.id}
+//   date={transaction.date}
+//   description={transaction.description}
+//   category={transaction.category}
+//   amount={transaction.amount}
+//   />
+// ));
 
 
   return (
