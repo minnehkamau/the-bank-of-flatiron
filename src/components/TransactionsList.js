@@ -5,10 +5,10 @@ function TransactionsList({arrayOftransactionEvents, transactionEventSetter, sea
 
 let transactionEventList ;
 const [sortMethod] = useState({
-  category: -1
+  category: -1,
   description: -1
 })
-const updateSortMethod = (item){
+function updateSortMethod(item){
   sortMethod[item] = sortMethod[item] * -1;
 }
 if (arrayOftransactionEvents) {
@@ -25,7 +25,16 @@ transactionEventList = filteredTransactions.map((transaction) => (
   amount={transaction.amount}
   />
 ));
-function sortTransactions(){
+function sortTransactions(e){
+
+  const sortBy = e.target.textContent.toLowerCase();
+  updateSortMethod(sortBy);
+  let copyArrayOftransactionEvents;
+
+  if sortBy == 'category' || sortBy == 'description'){
+    copyArrayOftransactionEvents = [...arrayOftransactionEvents].sort(a,b)=>{
+      
+    }
 
 }
 }
