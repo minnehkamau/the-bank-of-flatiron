@@ -1,8 +1,8 @@
 import React from "react";
 import Transaction from "./Transaction";
 
-function TransactionsList({arrayOftransaction}) {
-const singleTransaction = arrayOftransaction.map((transaction) => (
+function TransactionsList({arrayOftransactionEvents}) {
+const singleTransaction = arrayOftransactionEvents.map((transaction) => (
   <Transaction 
   key={transaction.id}
   date={transaction.date}

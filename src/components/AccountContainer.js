@@ -5,19 +5,19 @@ import AddTransactionForm from "./AddTransactionForm";
 
 function AccountContainer() {
 
-const [transactions, setTransactions] = useState([]);
+const [transactionsEvent, setTransactionsEvent] = useState([]);
 useEffect(() => { 
   fetch("http://localhost:8001/transactions")
   .then(response => response.json())
-  .then((data) => setTransactions(data));
+  .then((data) => setTransactionsEvent(data));
 }, [])
 
-console.log(transactions);
+console.log(transactionsEvent);
   return (
     <div>
       <Search />
       <AddTransactionForm />
-      <TransactionsList arrayOftransaction = {transactions}/>
+      <TransactionsList arrayOftransactionEvents = {transactionsEvent}/>
     </div>
   );
 }
