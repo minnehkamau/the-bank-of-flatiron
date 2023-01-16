@@ -1,6 +1,17 @@
-import React from "react";
+import React, {useState} from "react";
 
 function AddTransactionForm() {
+const [formInput, setFormInput] = useState({
+  date:"",
+  description:"",
+  category:"",
+  amount:"",
+});
+
+
+
+
+
   return (
     <div className="ui segment">
       <form className="ui form">
