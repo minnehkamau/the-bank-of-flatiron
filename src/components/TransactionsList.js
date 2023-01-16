@@ -8,14 +8,19 @@ const [sortMethod] = useState({
   category: -1,
   description: -1
 })
+
+//sort strategy
 function updateSortMethod(item){
   sortMethod[item] = sortMethod[item] * -1;
 }
-if (arrayOftransactionEvents) {
-  const filteredTransactions = arrayOftransactionEvents.filter(transactionEvents=>{
-    return (transactionEvents.description.toLowerCase().includes(searchName.toLowerCase()))
-  })
+if (transactionEvents) {
 
+
+  const filteredTransactions = transactionEvents.filter(transactionEvents=>{
+    return (transactionEvents.description.toLowerCase().includes(searchName.toLowerCase())||
+    transactionEvents.category.toLowerCase().includes(searchName.toLowerCase()))
+  })
+}
 transactionEventList = filteredTransactions.map((transaction) => (
   <Transaction 
   key={transaction.id}
@@ -25,18 +30,30 @@ transactionEventList = filteredTransactions.map((transaction) => (
   amount={transaction.amount}
   />
 ));
+
+
 function sortTransactions(e){
 
   const sortBy = e.target.textContent.toLowerCase();
   updateSortMethod(sortBy);
-  let copyArrayOftransactionEvents;
 
-  if sortBy == 'category' || sortBy == 'description'){
-    copyArrayOftransactionEvents = [...arrayOftransactionEvents].sort(a,b)=>{
-      
-    }
+
+  let copyOftransactionEvents;
+
+  if (sortBy === 'description' || sortBy === 'category') {
+    copyOftransactionEvents = [...arrayOftransactionEvents].sort((a,b)=>{
+      if (a[sortBy].toLowerCase() > b[sortBy].toLowerCase()){
+              return sortMethod[sortBy] 
+            }else if
+              (a[sortBy].toLowerCase() < b[sortBy].toLowerCase()){
+                return sortMethod[sortBy]                                       
+            }else{
+              return 0
+            }
+    })
 
 }
+transactionEventSetter(copyOftransactionEvents)
 }
   return (
     <table className="ui celled striped padded table">
