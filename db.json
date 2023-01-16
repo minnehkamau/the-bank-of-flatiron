@@ -97,7 +97,34 @@
       "category": "Food",
       "amount": "3000",
       "id": 14
+    },
+    {
+      "date": "2023-03-11",
+      "description": "Birthday",
+      "category": "Entertainment",
+      "amount": "100",
+      "id": 15
+    },
+    {
+      "date": "2023-03-11",
+      "description": "Birthday",
+      "category": "Entertainment",
+      "amount": "100",
+      "id": 16
+    },
+    {
+      "date": "2023-02-14",
+      "description": "Valentines",
+      "category": "Entertainment",
+      "amount": "25",
+      "id": 17
+    },
+    {
+      "date": "2023-04-24",
+      "description": "Shopping",
+      "category": "Housing",
+      "amount": "19",
+      "id": 18
     }
- 
   ]
 }
