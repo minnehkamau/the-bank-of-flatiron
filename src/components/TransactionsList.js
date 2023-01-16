@@ -2,17 +2,15 @@ import React from "react";
 import Transaction from "./Transaction";
 
 function TransactionsList({arrayOftransaction}) {
-const singleTransaction = arrayOftransaction.map((transaction) => {
+const singleTransaction = arrayOftransaction.map((transaction) => (
   <Transaction 
   key={transaction.id}
-  data={transaction.data}
+  date={transaction.date}
   description={transaction.description}
   category={transaction.category}
   amount={transaction.amount}
-  date={transaction.date}
-  deleteTransaction={handleDelete}
   />
-});
+));
 
 
   return (
@@ -32,7 +30,7 @@ const singleTransaction = arrayOftransaction.map((transaction) => {
             <h3 className="ui center aligned header">Amount</h3>
           </th>
         </tr>
-        {/* render a list of <Transaction> components here */}
+        {singleTransaction}
       </tbody>
     </table>
   );
