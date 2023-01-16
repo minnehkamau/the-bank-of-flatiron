@@ -23,6 +23,13 @@ function handleSubmit(e) {
   .then(data => addedData(data))
   }
 
+  function handleChange(e){
+    const key = e.target.name
+    const value = e.target.value;
+    setFormInput({...formInput,[key]: value})
+    console.log(formInput)
+  }
+
 
   return (
     <div className="ui segment">
