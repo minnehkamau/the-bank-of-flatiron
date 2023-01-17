@@ -6,12 +6,9 @@ import AddTransactionForm from "./AddTransactionForm";
 function AccountContainer() {
  
 const [transactionsEvent, setTransactionsEvent] = useState([])
-const [searchEvent, setSearchEvent] = useState([])
+const [searchEvent, setSearchEvent] = useState("")
 
-useEffect(() => { 
-  fetch("http://localhost:8001/transactions")
-  .then(response => response.json())
-  .then((data) => setTransactionsEvent(data));
+useEffect(() => {fetch("http://localhost:8001/transactions").then(response => response.json()).then((data) => setTransactionsEvent(data));
 }, [])
 
 
@@ -22,9 +19,9 @@ function updatedTransactionEvents(addedTransactions) {
 
   return (
     <div>
-      <Search  SearchName={searchEvent} setSearchEvent={setSearchEvent }/>
+      <Search  searchEvent={searchEvent} setSearchEvent={setSearchEvent }/>
       <AddTransactionForm addedData ={updatedTransactionEvents} />
-      <TransactionsList arrayOftransactionEvents = {transactionsEvent} transactionEventSetter={setTransactionsEvent} SearchName={searchEvent}/>
+      <TransactionsList transactionsEvent={transactionsEvent} setTransactionsEvent = {setTransactionsEvent}  searchEvent ={searchEvent}/>
     </div>
   );
 }

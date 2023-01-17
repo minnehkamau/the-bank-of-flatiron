@@ -1,47 +1,47 @@
 import React, {useState} from "react";
 import Transaction from "./Transaction";
 
-function TransactionsList({arrayOftransactionEvents, transactionEventSetter, searchName}) {
+function TransactionsList({transactionsEvent, setTransactionsEvent, searchEvent}) {
 
-let transactionEventList ;
+
 const [sortMethod] = useState({
   category: -1,
-  description: -1
+  description: -1,
 })
+let transactionEventList;
 
-//sort strategy
-function updateSortMethod(item){
-  sortMethod[item] = sortMethod[item] * -1;
-}
-if (transactionEvents) {
-
-
-  const filteredTransactions = transactionEvents.filter(transactionEvents=>{
-    return (transactionEvents.description.toLowerCase().includes(searchName.toLowerCase())||
-    transactionEvents.category.toLowerCase().includes(searchName.toLowerCase()))
+if (transactionsEvent) {
+const filteredTransactions = transactionsEvent.filter(transaction => {
+  return (transaction.description.toLowerCase().includes(searchEvent.toLowerCase()) || transaction.category.toLowerCase().includes(searchEvent.toLowerCase()))
   })
-}
+
 transactionEventList = filteredTransactions.map((transaction) => (
   <Transaction 
   key={transaction.id}
+  id={transaction.id}
   date={transaction.date}
   description={transaction.description}
   category={transaction.category}
   amount={transaction.amount}
   />
 ));
+}
+//sort strategy
+function updateSortMethod(item){
+  sortMethod[item] = sortMethod[item] * -1;
+}
 
 
-function sortTransactions(e){
+function sortTransactions(event){
 
-  const sortBy = e.target.textContent.toLowerCase();
+  const sortBy = event.target.textContent.toLowerCase();
   updateSortMethod(sortBy);
 
 
-  let copyOftransactionEvents;
+  let copyOftransactionsEvent;
 
   if (sortBy === 'description' || sortBy === 'category') {
-    copyOftransactionEvents = [...arrayOftransactionEvents].sort((a,b)=>{
+    copyOftransactionsEvent = [...transactionsEvent].sort((a,b)=>{
       if (a[sortBy].toLowerCase() > b[sortBy].toLowerCase()){
               return sortMethod[sortBy] 
             }else if
@@ -53,7 +53,7 @@ function sortTransactions(e){
     })
 
 }
-transactionEventSetter(copyOftransactionEvents)
+setTransactionsEvent(copyOftransactionsEvent)
 }
   return (
     <table className="ui celled striped padded table">

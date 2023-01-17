@@ -1,6 +1,6 @@
 import React from "react";
 
-function Search({searchName, setSearchEvent}) {
+function Search({searchEvent, setSearchEvent}) {
 function handleSearch(event) {
   setSearchEvent(event.target.value);
 }
@@ -13,7 +13,7 @@ function handleSearch(event) {
         type="text"
         placeholder="Search your Recent Transactions"
         onChange={handleSearch}
-        value={searchName}
+        value={searchEvent}
       />
       <i className="circular search link icon"></i>
     </div>
